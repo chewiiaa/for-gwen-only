@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Honeybunch Sugarplum</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url('1000000441.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .heart {
+      width: 80px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .heart:hover {
+      transform: scale(1.2);
+    }
+
+    .letter {
+      display: none;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 600px;
+      text-align: left;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease forwards;
+      margin-top: 20px;
+    }
+
+    #surpriseBtn {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #8a2be2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #cake {
+      display: none;
+      width: 200px;
+      margin-top: 20px;
+    }
+
+    #candleNote {
+      display: none;
+      margin-top: 10px;
+      font-style: italic;
+      color: #8a2be2;
+    }
+
+    #balloons {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('heart-balloons.gif') center/contain no-repeat;
+      pointer-events: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="balisong.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <img src="1000000404.png" alt="bunny" class="heart" onclick="showLetter()">
+
+  <div id="letter" class="letter">
+    <p>To my baby, my sweetheart, my honeybunch sugarplum...</p>
+    <p>[Full letter text here]</p>
+  </div>
+
+  <button id="surpriseBtn" onclick="showCake()">Click here for surprise</button>
+
+  <img id="cake" src="purple-cake.png" alt="cake" onclick="blowCandle()">
+  <div id="candleNote">Shake to blow the candle!</div>
+  <div id="balloons"></div>
+
+  <script>
+    window.addEventListener('click', function () {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play().catch(err => {
+          console.log('Error playing audio:', err);
+        });
+      }
+    }, { once: true });
+
+    function showLetter() {
+      document.getElementById('letter').style.display = 'block';
+      document.getElementById('surpriseBtn').style.display = 'inline-block';
+    }
+
+    function showCake() {
+      document.getElementById('cake').style.display = 'block';
+      document.getElementById('candleNote').style.display = 'block';
+    }
+
+    function blowCandle() {
+      // shaking simulated by device motion
+      window.addEventListener('devicemotion', function(event) {
+        const acc = event.accelerationIncludingGravity;
+        const shake = Math.abs(acc.x) + Math.abs(acc.y) + Math.abs(acc.z);
+        if (shake > 30) {
+          document.getElementById('balloons').style.display = 'block';
+        }
+      }, { once: true });
+    }
+  </script>
+</body>
+  </html>
+  
