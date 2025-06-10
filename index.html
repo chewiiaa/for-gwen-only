@@ -53,14 +53,15 @@
       overflow: hidden;
     }
 
-    .typing p {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid #555;
-      width: 0;
-      animation: typing 4s steps(60, end) forwards;
-      font-size: 1.1em;
-      margin-bottom: 16px;
+    ..typing p {
+  overflow: hidden;
+  border-right: 2px solid #555;
+  animation: typing 4s steps(60, end) forwards;
+  font-size: 1.1em;
+  margin-bottom: 16px;
+  white-space: normal; /* ✅ Allow word wrapping */
+}
+
     }
 
     .typing p:nth-child(2) { animation-delay: 4s; }
