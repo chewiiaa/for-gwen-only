@@ -4,10 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday, My Honeybunch Sugarplum</title>
+
+  <!-- Cherry Cordial Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Cordial:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
+      font-family: 'Cherry Cordial', cursive;
       background-image: url('1000000441.jpg');
       background-size: contain;
       background-repeat: no-repeat;
@@ -43,43 +47,44 @@
       max-width: 600px;
       text-align: left;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease forwards;
       margin-top: 20px;
       z-index: 20;
       position: relative;
+      overflow: hidden;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .typing p {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #555;
+      width: 0;
+      animation: typing 4s steps(60, end) forwards;
+      font-size: 1.1em;
+      margin-bottom: 16px;
     }
 
-    .balloon {
-      position: absolute;
-      font-size: 32px;
-      animation: float 4s linear forwards;
-      pointer-events: none;
-    }
+    .typing p:nth-child(2) { animation-delay: 4s; }
+    .typing p:nth-child(3) { animation-delay: 8s; }
+    .typing p:nth-child(4) { animation-delay: 12s; }
+    .typing p:nth-child(5) { animation-delay: 16s; }
+    .typing p:nth-child(6) { animation-delay: 20s; }
+    .typing p:nth-child(7) { animation-delay: 24s; }
 
-    @keyframes float {
-      0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-400px) scale(1.5);
+    @keyframes typing {
+      to {
+        width: 100%;
+        border-right: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Invisible clickable bunny area -->
-  <div class="bunny-click" onclick="showLetterAndBalloons(event)"></div>
+  <!-- Invisible clickable area -->
+  <div class="bunny-click" onclick="showLetter()"></div>
 
-  <!-- Letter content -->
-  <div id="letter" class="letter">
+  <!-- Hidden letter -->
+  <div id="letter" class="letter typing">
     <p>To my baby, my sweetheart, my honeybunch sugarplum, my cupcake sa ibabaw ng icing ko, my motivation, my reason, my everything—Happy Birthday!!</p>
     <p>Years have already passed, but the feelings I’ve felt for you are still the same. I still like you for your humorous jokes and your kind soul. I still like you for the way you are. You truly deserve to be loved—that’s why I am trying to make you feel it.</p>
     <p>I don’t know if I truly deserve to have you—to be loved by you. After everything, how could you still love and forgive me? I am afraid that I wouldn’t be able to give you the love you truly deserve. I’m afraid that you’ll meet someone who can give you everything without struggling. But I don’t have a choice, though. If I am not worthy enough—if even with simple words I cannot express myself, and I struggle—it is not your fault, it’s mine. And I will never blame you for it. I would still love you, even if you won’t choose me.</p>
@@ -95,7 +100,6 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Script: Music + Letter + Balloons -->
   <script>
     window.addEventListener('click', function () {
       const music = document.getElementById('bgMusic');
@@ -106,30 +110,9 @@
       }
     }, { once: true });
 
-    function showLetterAndBalloons(event) {
-      document.getElementById('letter').style.display = 'block';
-      createBalloons(event.clientX, event.clientY);
-    }
-
-    function createBalloons(x, y) {
-      for (let i = 0; i < 10; i++) {
-        const balloon = document.createElement('div');
-        balloon.className = 'balloon';
-        balloon.textContent = '💜';
-
-        const offsetX = Math.random() * 100 - 50;
-        const offsetY = Math.random() * 20;
-
-        balloon.style.left = `${x + offsetX}px`;
-        balloon.style.top = `${y + offsetY}px`;
-        balloon.style.animationDuration = `${3 + Math.random() * 2}s`;
-
-        document.body.appendChild(balloon);
-
-        setTimeout(() => {
-          balloon.remove();
-        }, 5000);
-      }
+    function showLetter() {
+      const letter = document.getElementById('letter');
+      letter.style.display = 'block';
     }
   </script>
 
