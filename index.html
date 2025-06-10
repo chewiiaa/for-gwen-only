@@ -9,9 +9,10 @@
       margin: 0;
       font-family: 'Georgia', serif;
       background-image: url('1000000441.jpg');
-      background-size: cover;
-      background-position: center;
+      background-size: contain;
       background-repeat: no-repeat;
+      background-position: center;
+      background-color: #000; /* adds contrast if image doesn't fill screen */
       color: #222;
       display: flex;
       flex-direction: column;
@@ -22,15 +23,16 @@
       padding: 20px;
     }
 
-    .heart {
-      width: 80px;
+    /* Invisible clickable area for bunny */
+    .bunny-click {
+      width: 100px;
+      height: 100px;
       cursor: pointer;
-      transition: transform 0.3s ease;
-      margin-bottom: 20px;
-    }
-
-    .heart:hover {
-      transform: scale(1.2);
+      position: absolute;
+      top: 60%;  /* Adjust this based on where bunny used to be */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
     }
 
     .letter {
@@ -43,6 +45,8 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       animation: fadeIn 1s ease forwards;
       margin-top: 20px;
+      z-index: 20;
+      position: relative;
     }
 
     @keyframes fadeIn {
@@ -53,10 +57,10 @@
 </head>
 <body>
 
-  <!-- Bunny trigger -->
-  <img src="1000000404.png" alt="bunny" class="heart" onclick="showLetter()">
+  <!-- Invisible clickable spot -->
+  <div class="bunny-click" onclick="showLetter()"></div>
 
-  <!-- Letter content -->
+  <!-- Hidden letter -->
   <div id="letter" class="letter">
     <p>To my baby, my sweetheart, my honeybunch sugarplum, my cupcake sa ibabaw ng icing ko, my motivation, my reason, my everything—Happy Birthday!!</p>
 
@@ -73,13 +77,13 @@
     <p>I am so truly thankful to have you in my life. May this gift I’ve made for you make your day, even though I am far away. May your life be filled with joy and laughter.</p>
   </div>
 
-  <!-- Audio -->
+  <!-- Music -->
   <audio id="bgMusic" loop>
     <source src="balisong.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- JS logic -->
+  <!-- Scripts -->
   <script>
     window.addEventListener('click', function () {
       const music = document.getElementById('bgMusic');
