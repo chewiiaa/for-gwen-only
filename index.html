@@ -12,7 +12,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      background-color: #000; /* adds contrast if image doesn't fill screen */
+      background-color: #000;
       color: #222;
       display: flex;
       flex-direction: column;
@@ -23,13 +23,12 @@
       padding: 20px;
     }
 
-    /* Invisible clickable area for bunny */
     .bunny-click {
       width: 100px;
       height: 100px;
       cursor: pointer;
       position: absolute;
-      top: 60%;  /* Adjust this based on where bunny used to be */
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
@@ -57,33 +56,29 @@
 </head>
 <body>
 
-  <!-- Invisible clickable spot -->
   <div class="bunny-click" onclick="showLetter()"></div>
 
-  <!-- Hidden letter -->
   <div id="letter" class="letter">
-    <p>To my baby, my sweetheart, my honeybunch sugarplum, my cupcake sa ibabaw ng icing ko, my motivation, my reason, my everything—Happy Birthday!!</p>
+    <p>To my baby, my sweetheart, akong honeybunch sugarplum, my cupcake sa ibabaw ng icing ko, my motivation, akong reason, my everything — Happy Birthday!!</p>
 
-    <p>Years have already passed, but the feelings I’ve felt for you are still the same. I still like you for your humorous jokes and your kind soul. I still like you for the way you are. You truly deserve to be loved—that’s why I am trying to make you feel it.</p>
+    <p>Years have already passed, but the feelings I’ve felt for you haven’t changed. I still like you tungod sa imong mga humorous jokes and your kind soul. I still like you just the way you are. You truly deserve to be loved — that’s why I’m trying to make you feel it. Pero I’m sorry kung di nimo siya ma-feel usahay kasi I’m not really good at expressing it.. pero I’ll try my best.</p>
 
-    <p>I don’t know if I truly deserve to have you—to be loved by you. After everything, how could you still love and forgive me? I am afraid that I wouldn’t be able to give you the love you truly deserve. I’m afraid that you’ll meet someone who can give you everything without struggling. But I don’t have a choice, though. If I am not worthy enough—if even with simple words I cannot express myself, and I struggle—it is not your fault, it’s mine. And I will never blame you for it. I would still love you, even if you won’t choose me.</p>
+    <p>Sometimes I wonder if I even deserve you—to be loved by someone like you. After everything, how could you still love and forgive me? I’m afraid I won’t be able to give you the kind of love na deserve nimo. I’m scared you’ll meet someone who can give you everything, easily and perfectly (pero unta dili huhu). But kabalo ko na I can’t control that. If I am not worthy enough—if di nako maingon ang right words or express my love properly — it’s not your fault. It’s mine. And I’ll never blame you for it. I would still love you, even if you don’t choose me. And that love will motivate me to be better hehe.</p>
 
-    <p>You’ve built a home in my heart, where laughter echoes through the expanding and contracting chambers—creating a rhythmic pulse of joy.</p>
+    <p>You’ve built a home in my heart, where laughter echoes through every beat — creating a rhythm of joy and warmth.</p>
 
-    <p>Thank you for being patient with me, especially on the days when I bottle everything up and say nothing. I want to stay through the storms, through the highs and lows, and through this chaotic world. You truly deserve a love that’s constant and unwavering.</p>
+    <p>Thank you for being so patient with me, especially on the days when I bottle everything up and say nothing. I want to stay with you — through storms, through highs and lows, through everything this chaotic world brings. You deserve to be loved, and you don’t even need to ask why. I’ve never felt this kind of warmth before. Your laughter, your beauty—everything about you—makes my heart feel so full (busog?? hhaahhha).</p>
 
-    <p>I have never felt this warmth before. Your laughter, your beauty—everything about you—makes it feel so unreal.</p>
+    <p>I’m truly grateful to have you in my life. I hope this little gift I made for you brings you happiness, even if I’m far away. May your life be filled with joy, laughter, and love. I LOVEE YOUUUU!!!!!!</p>
 
-    <p>I am so truly thankful to have you in my life. May this gift I’ve made for you make your day, even though I am far away. May your life be filled with joy and laughter.</p>
+    <p>Devotedly yours,<br>Delusi :DD</p>
   </div>
 
-  <!-- Music -->
   <audio id="bgMusic" loop>
     <source src="balisong.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Scripts -->
   <script>
     window.addEventListener('click', function () {
       const music = document.getElementById('bgMusic');
@@ -101,3 +96,4 @@
 
 </body>
 </html>
+
